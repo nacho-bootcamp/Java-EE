@@ -1,0 +1,30 @@
+CONFIGURACION Y TIPOS DE EJB´S
+
+CLASE PURA DE JAVA + NOTACIONES = ENTERPRISE JAVABEANS(EJB)
+
+TIPOS DE ENTERPRISE JAVABEANS:
+
+STATELESS: No guardan estados y seutiliza la anotacion @Stateless
+
+STATEFUL: Guarda estado y se utiliza la notacion @Stateful
+
+SINGLETON: Solo existe una instancia en memoria y se utiliza la anotacion @Singleton.
+
+EXISTEN DIFERENTES FORMAS DE COMUNICARNOS CON UN EJB:
+
+INTERFAZ LOCAL: Se utiliza cunado el cliente se encuntra en el mismo servidor JAVA
+
+INTERFAR REMOTA:Se utiliza cunado el cliente se encuntra fuera del servidor JAVA.
+
+NO INTERFACE: Es una variante y simplificacion de los EJB locales
+
+JNDI es un API que permite encontrar servicios o recursos empresariales en un 
+servidor de aplicaciones JAVA.
+Para encontrar un EJB version 3.1 podemos utilizar la siguiente sintaxis:
+
+java:global[/<app-name>]/<module-name>/<bean-name>[!<fully-qualified-interface-name>]
+
+INYECCION DE DEPENDENCIAS
+Existen 2 tipos de inyeccion de dependencia en EJB:
+1_Utilizando la anotacion @EJB
+2_Utilizando la anotacion @Inject 
