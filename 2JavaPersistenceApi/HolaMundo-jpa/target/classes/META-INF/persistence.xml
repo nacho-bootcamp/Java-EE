@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmls.jcp.org/xml/ns/persistence/persistence_2_2.xsd" version="2.2">
+
+    <persistence-unit name="PersonaPU" transaction-type="RESOURCE_LOCAL">
+        <class>arg.com.gm.sga.domain.Persona</class>
+        <!--configuracion del archivo persisten el cual incluye las propiedades de conexion
+de la base de datos  y otros elementos      -->
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test?userSSL=false&amp;userTimezone=true&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="admin123456789"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.MysqlDataSource"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.loggin.parameters" value="true"/>       
+        </properties>
+    </persistence-unit>    
+
+
+
+</persistence>
+
+
+<root>
+    
+</root>
+
