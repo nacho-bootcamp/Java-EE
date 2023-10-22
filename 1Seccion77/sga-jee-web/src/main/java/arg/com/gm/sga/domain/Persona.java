@@ -1,25 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package arg.com.gm.sga.domain;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
+@Entity
+@NamedQueries({
+    // esto es jpql y va a recuperar objetos no columnas 
+@NamedQuery(name="Persona.findAll",query="SELECT p FROM Persona p ORDER BY p.idPersona")
+})
+@Table(name="persona")
 public class Persona implements Serializable{
-    private static final long serialVersinUID=1L;
-    private int idPersona;
-    private String nombre;
-    private String apellido;
-    private String email;
-    private String telefono;
+    private static final long serialVersionUID = 1L;
     
-    public Persona(){
-        
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_persona")
+    private int idPersona;
+    
+    private String nombre;
+    
+    private String apellido;
+    
+    private String email;
+    
+    private String telefono;
+
+    public Persona() {
     }
 
-    public Persona(int idPersona, String nombre, String apellido, String email, String telefono) {
-        this.idPersona = idPersona;
+    public Persona(String nombre, String apellido, String email, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -70,11 +79,6 @@ public class Persona implements Serializable{
     public String toString() {
         return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
-    
-    
-    
-    
-    
     
     
 }

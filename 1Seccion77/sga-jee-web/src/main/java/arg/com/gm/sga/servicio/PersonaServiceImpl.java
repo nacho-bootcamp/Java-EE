@@ -4,35 +4,45 @@
  */
 package arg.com.gm.sga.servicio;
 
+import arg.com.gm.sga.datos.PersonaDao;
 import arg.com.gm.sga.domain.Persona;
 import java.util.*;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 @Stateless
 public class PersonaServiceImpl implements  PersonaServiceRemote,PersonaService{
+    
+    @Inject
+    private PersonaDao personaDao;
+    
     @Override
     public List<Persona> listarPersona(){
-    List<Persona> personas= new ArrayList<>();
-    personas.add(new Persona(1,"nacho","Cardozo","ignacio@gmail.com","3884686043"));
-     personas.add(new Persona(2,"Eri","Condori","eri@gmail.com","3884686042"));
-    return personas;
+      return personaDao.findAllPersona();
     }
     
     @Override
     public Persona encontrarPersonaPorId(Persona persona){
-    return null;}
-    
-    @Override
-    public Persona encontrarPersonaPorEmail(Persona persona){
-        return null;
+    return personaDao.findPersonaById(persona);
     }
     
     @Override
-    public void registarPrsona(Persona persona){}
+    public Persona encontrarPersonaPorEmail(Persona persona){
+        return personaDao.findPersonaByEmail(persona);
+    }
     
     @Override
-    public void modificarPersona(Persona persona){}
+    public void registarPrsona(Persona persona){
+    personaDao.insertPersona(persona);
+    }
     
     @Override
-    public void eliminarPersona(Persona persona){}
+    public void modificarPersona(Persona persona){
+    personaDao.updatePersona(persona);
+    }
+    
+    @Override
+    public void eliminarPersona(Persona persona){
+    personaDao.deletePersona(persona);
+    }
 }

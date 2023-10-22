@@ -1,31 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package arg.com.gm.sga.domain;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
-public class Persona implements  Serializable{
-    private static final long serialVersionUID=1L;
+public class Persona implements Serializable{
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_persona")
     private int idPersona;
     
-    
     private String nombre;
-    
     
     private String apellido;
     
-    
     private String email;
-    
     
     private String telefono;
 
@@ -83,7 +74,6 @@ public class Persona implements  Serializable{
     public String toString() {
         return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
-    
     
     
 }
