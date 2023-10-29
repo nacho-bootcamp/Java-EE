@@ -19,7 +19,7 @@ public class ClienteAsociacionesJPA {
     static Logger log = LogManager.getRootLogger();
 
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonaPu");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonaPU");
         EntityManager em = emf.createEntityManager();
 
         List<Persona> personas = em.createNamedQuery("Persona.findAll").getResultList();

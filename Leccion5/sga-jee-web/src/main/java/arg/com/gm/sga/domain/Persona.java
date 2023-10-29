@@ -37,7 +37,7 @@ public class Persona implements Serializable {
     private String email;
     @Size(max = 45)
     private String telefono;
-    @OneToMany(mappedBy = "persona")
+    @OneToMany(mappedBy = "persona",fetch = FetchType.EAGER)
     private List<Usuario> usuarioList;
 
     public Persona() {

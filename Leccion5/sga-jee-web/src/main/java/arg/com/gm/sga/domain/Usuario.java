@@ -31,7 +31,7 @@ public class Usuario implements Serializable {
     @Size(max = 45)
     private String password;
     @JoinColumn(name = "id_persona", referencedColumnName = "idpersona")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Persona persona;
 
     public Usuario() {
