@@ -15,11 +15,11 @@ import org.apache.logging.log4j.*;
  * @author eri y nacho
  */
 public class PruebaJPQL {
-    
+
     static Logger log = LogManager.getRootLogger();
-    
+
     public static void main(String[] args) {
-        
+
         String jpql = null;
         Query q = null;
         List<Persona> personas = null;
@@ -28,7 +28,7 @@ public class PruebaJPQL {
         Object[] tupla = null;
         List<String> nombres = null;
         List<Usuario> usuarios = null;
-        
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonaPU");
         EntityManager em = emf.createEntityManager();
 
@@ -52,7 +52,7 @@ public class PruebaJPQL {
         //4.Consulta de datos individuales se crea un arreglo(tupla) de tipo
         //object de 3 columnas
         log.debug("\n1. Consulta de datos individuales se crea un arreglo(tupla) de tipo object de 3 columnas");
-        
+
         jpql = "select p.nombre as Nombre, p.apellido as Apellido , p.email as Email from Persona p";
         iter = em.createQuery(jpql).getResultList().iterator();
         while (iter.hasNext()) {
@@ -85,7 +85,7 @@ public class PruebaJPQL {
         System.out.println("\n Regresa el valor min y max de idpersona");
         jpql = "select min(p.idpersona) as MinId,max(p.idpersona) as MaxId,count(p.idpersona) as Contador from Persona p  ";
         iter = em.createQuery(jpql).getResultList().iterator();
-        
+
         while (iter.hasNext()) {
             tupla = (Object[]) iter.next();
             Integer idMin = (Integer) tupla[0];
@@ -109,9 +109,9 @@ public class PruebaJPQL {
 
         //10.Obtiene el objeto persona con id igual al parametro porpocionado
         log.debug("\n. Obtiene el objeto persona con id igual al parametro porpocionado");
-        
+
         int idPersona = 1;
-        
+
         jpql = "select p from Persona p where p.idpersona = :id";
         q = em.createQuery(jpql);
         q.setParameter("id", idPersona);
@@ -138,13 +138,37 @@ public class PruebaJPQL {
         log.debug("Uso del ordenamiento");
         jpql = "select p from Persona p where p.idpersona > 1 order by p.nombre desc,p.apellido desc";
         personas = em.createQuery(jpql).getResultList();
-        mostrarPersona(personas);
+        //mostrarPersona(personas);
+
+        //14.Uso de subquery
+        log.debug("n\14. Uso de subquery");
+        jpql = "select p from Persona p where p.idpersona in(Select min(p1.idpersona) from Persona p1)";
+        personas = em.createQuery(jpql).getResultList();
+        //mostrarPersona(personas);
+
+        //15.Uso de join con lazy loading
+        log.debug("\n15.Uso de join con lazy loading");
+        jpql = "select u from Usuario u join u.persona p ";
+        usuarios = em.createQuery(jpql).getResultList();
+        //mostrarUsuario(usuarios);
         
+        //16.Uso de left join con eager loading
+        log.debug("n\16.Uso de left join con eager loading");
+        jpql="select u from Usuario u left join fetch u.persona";// con el fetch ya recuperamos los datos al momento como el EAGER
+        usuarios=em.createQuery(jpql).getResultList();
+        mostrarUsuario(usuarios);
+
     }
-    
+
     private static void mostrarPersona(List<Persona> personas) {
         for (Persona p : personas) {
             log.debug(p);
+        }
+    }
+
+    private static void mostrarUsuario(List<Usuario> usuarios) {
+        for (Usuario u : usuarios) {
+            log.debug(u);
         }
     }
 }
