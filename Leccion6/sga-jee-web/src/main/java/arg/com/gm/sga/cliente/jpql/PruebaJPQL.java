@@ -37,6 +37,7 @@ public class PruebaJPQL {
         jpql = "Select p from Persona p";
         personas = em.createQuery(jpql).getResultList();
         //mostrarPersona(personas);
+
         //2 consulta de la persona con id=1
         log.debug("\n1. Consulta de todas la Persona con id = 1 ");
         jpql = "Select p from Persona p where p.idpersona = 1";
@@ -45,9 +46,25 @@ public class PruebaJPQL {
 
         //3.Consulta de la persona por nombre
         jpql = "Select p from Persona p where p.nombre='nacho'";
-        personas=em.createQuery(jpql).getResultList();
-        mostrarPersona(personas);
+        personas = em.createQuery(jpql).getResultList();
+        //mostrarPersona(personas);
 
+        //4.Consulta de datos individuales se crea un arreglo(tupla) de tipo
+        //object de 3 columnas
+        log.debug("\n1. Consulta de datos individuales se crea un arreglo(tupla) de tipo object de 3 columnas");
+
+        jpql="select p.nombre as Nombre, p.apellido as Apellido , p.email as Email from Persona p";
+        iter=em.createQuery(jpql).getResultList().iterator();
+        while(iter.hasNext()){
+        tupla=(Object[]) iter.next();
+        String nombre=(String)tupla[0];
+        String apellido=(String)tupla[1];
+        String email=(String)tupla[2];
+        log.debug("nombre:"+nombre+",apellido:"+apellido+"email:"+email);
+        }
+        
+        
+        
     }
 
     private static void mostrarPersona(List<Persona> personas) {
