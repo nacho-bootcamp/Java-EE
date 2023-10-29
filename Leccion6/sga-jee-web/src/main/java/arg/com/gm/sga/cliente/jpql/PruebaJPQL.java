@@ -104,10 +104,18 @@ public class PruebaJPQL {
         jpql="select upper(concat(p.nombre,' ',p.apellido)) as Nombre from Persona p";
         nombres=em.createQuery(jpql).getResultList();
         for(String nombreCompleto:nombres){
-        log.debug(nombreCompleto);
+        //log.debug(nombreCompleto);
         }
         
+        //10.Obtiene el objeto persona con id igual al parametro porpocionado
+        log.debug("\n. Obtiene el objeto persona con id igual al parametro porpocionado");
         
+        int idPersona=1;
+        
+        jpql="select p from Persona p where p.idpersona = :id";
+        q=em.createQuery(jpql);
+        q.setParameter("id", idPersona);
+        persona=(Persona) q.getSingleResult();
         
     }
 
