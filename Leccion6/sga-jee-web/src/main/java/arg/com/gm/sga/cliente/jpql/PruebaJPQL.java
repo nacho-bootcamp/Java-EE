@@ -96,27 +96,38 @@ public class PruebaJPQL {
         //8.Cuenta los nombres de las presonas que son distintos
         System.out.println("Cuenta los nombres de las presonas que son distintos");
         jpql = "select count(distinct p.nombre) from Persona p";
-        Long contador=(Long) em.createQuery(jpql).getSingleResult();
-        log.debug("numero de personas con nombres distintos:"+contador);
-   
+        Long contador = (Long) em.createQuery(jpql).getSingleResult();
+        log.debug("numero de personas con nombres distintos:" + contador);
+
         //9.Concatenar y convertir a mayusculas  el nombre y apellido
         log.debug("\n Concatenar y convertir a mayusculas  el nombre y apellido");
-        jpql="select upper(concat(p.nombre,' ',p.apellido)) as Nombre from Persona p";
-        nombres=em.createQuery(jpql).getResultList();
-        for(String nombreCompleto:nombres){
-        //log.debug(nombreCompleto);
+        jpql = "select upper(concat(p.nombre,' ',p.apellido)) as Nombre from Persona p";
+        nombres = em.createQuery(jpql).getResultList();
+        for (String nombreCompleto : nombres) {
+            //log.debug(nombreCompleto);
         }
-        
+
         //10.Obtiene el objeto persona con id igual al parametro porpocionado
         log.debug("\n. Obtiene el objeto persona con id igual al parametro porpocionado");
-        
-        int idPersona=1;
-        
-        jpql="select p from Persona p where p.idpersona = :id";
-        q=em.createQuery(jpql);
+
+        int idPersona = 1;
+
+        jpql = "select p from Persona p where p.idpersona = :id";
+        q = em.createQuery(jpql);
         q.setParameter("id", idPersona);
-        persona=(Persona) q.getSingleResult();
-        
+        persona = (Persona) q.getSingleResult();
+        // log.debug(persona);
+
+        //11. Obtiene las ´personas que contengan una letra "a" en el nombre, sin
+        //importar si es mayusculas o minusculas.
+        log.debug("\n11 Obtiene las personas que contengan una letra a en el nombre, sin importar si es mayusculas o minusculas.");
+        jpql = "select p from Persona p where upper(p.nombre) like upper(:parametro)";
+        String parametroString = "%a%"; // es el caracter que utilizamos para el like
+        q = em.createQuery(jpql);
+        q.setParameter("parametro", parametroString);
+        personas = q.getResultList();
+        mostrarPersona(personas);
+
     }
 
     private static void mostrarPersona(List<Persona> personas) {
