@@ -60,7 +60,22 @@ public class PruebaJPQL {
         String nombre=(String)tupla[0];
         String apellido=(String)tupla[1];
         String email=(String)tupla[2];
-        log.debug("nombre:"+nombre+",apellido:"+apellido+"email:"+email);
+        //log.debug("nombre:"+nombre+",apellido:"+apellido+"email:"+email);
+        
+        //5.obtiene el objeto persona y el id,
+        //se crea un arreglo de tipo object condos columnas
+        log.debug("\n. obtiene el objeto persona y el id,se crea un arreglo de tipo object condos columnas");
+        jpql="select p,p.idpersona from Persona p";
+        iter=em.createQuery(jpql).getResultList().iterator();
+        while(iter.hasNext()){
+        tupla=(Object[])iter.next();
+        persona=(Persona) tupla[0];
+        int idpersona=(int)tupla[1];
+        log.debug("Objeto persona:"+persona);
+        log.debug("id persona:"+idpersona);
+        }
+        
+        
         }
         
         
