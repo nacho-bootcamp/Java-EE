@@ -35,14 +35,24 @@ public class PruebaJPQL {
         //1. consultas de todos los objetos de tipo persona
         log.debug("\n1. Consulta de todas las Personas ");
         jpql = "Select p from Persona p";
+        personas = em.createQuery(jpql).getResultList();
+        //mostrarPersona(personas);
+        //2 consulta de la persona con id=1
+        log.debug("\n1. Consulta de todas la Persona con id = 1 ");
+        jpql = "Select p from Persona p where p.idpersona = 1";
+        persona = (Persona) em.createQuery(jpql).getSingleResult();
+        //log.debug(persona);
+
+        //3.Consulta de la persona por nombre
+        jpql = "Select p from Persona p where p.nombre='nacho'";
         personas=em.createQuery(jpql).getResultList();
         mostrarPersona(personas);
-        em.close();
+
     }
 
     private static void mostrarPersona(List<Persona> personas) {
-    for(Persona p:personas){
-    log.debug(p);
-    }    
+        for (Persona p : personas) {
+            log.debug(p);
+        }
     }
 }
