@@ -6,11 +6,9 @@ package arg.com.gm.sga.servicio;
 
 import arg.com.gm.sga.domain.Persona;
 import java.util.List;
-import javax.annotation.security.PermitAll;
 import javax.ejb.Local;
 
 @Local
-@PermitAll
 public interface PersonaService {
     public List<Persona> listarPersona();
     

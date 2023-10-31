@@ -13,34 +13,34 @@ import org.primefaces.event.RowEditEvent;
 @Named("personaBean")
 @RequestScoped
 public class PersonaBean {
-
-Logger log = LogManager.getRootLogger();
-
+    
+    Logger log = LogManager.getRootLogger();
+    
     @Inject
     private PersonaService personaService;
 
     private Persona personaSeleccionada;
-
+    
     List<Persona> personas;
-
-    public PersonaBean() {
-        log.debug("Iniciando el objeto persona Beans");
+    
+    public PersonaBean(){
+        log.debug("Iniciando el objeto PersonaBean");
     }
-
+    
     @PostConstruct
-    public void inicializar() {
-        //iniciamos las variables
+    public void inicializar(){
+        //Inciamos las variables
         this.personas = personaService.listarPersona();
-        log.debug("Personas recuperadas en ManagedBean "+this.personas);
+        log.debug("personas recuperadas en ManagedBean:" + this.personas);
         this.personaSeleccionada = new Persona();
     }
     
     public void editListener(RowEditEvent event){
-    Persona persona=(Persona) event.getObject();
-    personaService.modificarPersona(persona);
+        Persona persona = (Persona) event.getObject();
+        personaService.modificarPersona(persona);
     }
     
-        public Persona getPersonaSeleccionada() {
+      public Persona getPersonaSeleccionada() {
         return personaSeleccionada;
     }
 
@@ -55,5 +55,6 @@ Logger log = LogManager.getRootLogger();
     public void setPersonas(List<Persona> personas) {
         this.personas = personas;
     }
+    
 
 }
