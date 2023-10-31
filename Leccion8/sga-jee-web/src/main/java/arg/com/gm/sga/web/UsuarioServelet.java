@@ -21,19 +21,17 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/usuario")
 public class UsuarioServelet extends HttpServlet {
-    
-  @Inject  
+
+  @Inject
   UsuarioService usuarioService;
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Usuario>usuario=usuarioService.listarUsuario();
-        System.out.println("usuario "+usuario);
-        
-        req.setAttribute("usuario",usuario);
-        req.getRequestDispatcher("/listadoUsuario.jsp").forward(req, resp);
-    }
-  
-  
-    
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    List<Usuario> usuario = usuarioService.listarUsuario();
+    System.out.println("usuario " + usuario);
+
+    req.setAttribute("usuario", usuario);
+    req.getRequestDispatcher("/listadoUsuario.jsp").forward(req, resp);
+  }
+
 }

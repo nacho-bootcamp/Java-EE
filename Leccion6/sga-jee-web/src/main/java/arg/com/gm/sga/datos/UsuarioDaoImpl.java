@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Stateless 
 public class UsuarioDaoImpl implements UsuarioDao{
     
-    @PersistenceContext(unitName="PersonaPU")
+   // @PersistenceContext(unitName="PersonaPU")
     EntityManager em;
 
     @Override

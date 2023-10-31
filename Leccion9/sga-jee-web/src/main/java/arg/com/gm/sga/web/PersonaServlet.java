@@ -8,7 +8,6 @@ import arg.com.gm.sga.domain.Persona;
 import arg.com.gm.sga.servicio.PersonaService;
 import java.io.IOException;
 import java.util.List;
-import javax.ejb.EJBTransactionRolledbackException;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +23,7 @@ public class PersonaServlet extends HttpServlet {
     PersonaService personaService;
     
     @Override
-    protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException,EJBTransactionRolledbackException{
+    protected void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
    //acceder al listado de persona por medio de la instancia de EJB(personaService)
         List<Persona>personas=personaService.listarPersona();
         System.out.println("persona "+personas);

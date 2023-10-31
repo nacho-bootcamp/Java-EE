@@ -6,26 +6,22 @@ package arg.com.gm.sga.servicio;
 
 import arg.com.gm.sga.domain.Usuario;
 import java.util.List;
-import javax.ejb.Local;
 
 /**
  *
  * @author eri y nacho
  */
-@Local
-public interface UsuarioService {
-    public List<Usuario>listarUsuario();
+public interface UsuarioServiceRemote {
+       
+    
+    public List<Usuario> listarUsuarios();
     
     public Usuario encontrarUsuarioPorId(Usuario usuario);
-    
-    public Usuario encontrarUsuarioPorIdPersona(Usuario usuario);
-    
-    public Usuario encontrarUsuarioPorUserName(Usuario usuario);
     
     public void registrarUsuario(Usuario usuario);
     
     public void modificarUsuario(Usuario usuario);
     
     public void eliminarUsuario(Usuario usuario);
-     
+    
 }
