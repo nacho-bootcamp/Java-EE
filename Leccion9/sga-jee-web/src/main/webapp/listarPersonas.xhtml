@@ -24,7 +24,7 @@
             <p:growl id="messages" showDetail="true" />
             <p:messages/>
 
-            <p:dataTable id="personasDataTable" value="#{personaBean.personas}" var="persona" editable="true" rowKey="#{persona.idPersona}" 
+            <p:dataTable id="personasDataTable" value="#{personaBean.personas}" var="persona" editable="true" rowKey="#{persona.idpersona}" 
                          selection="#{personaBean.personaSeleccionada}" selectionMode="single" >
 
                 <f:facet name="header">
@@ -32,7 +32,7 @@
                 </f:facet>
                 
                 <p:column headerText="Id">
-                    <h:outputText value="#{persona.idPersona}" />
+                    <h:outputText value="#{persona.idpersona}" />
                 </p:column>
 
                 <p:column headerText="Nombre">
@@ -96,7 +96,7 @@
             
             <p:contextMenu for="personasDataTable">
                 <p:menuitem value="Eliminar" update="personasListForm:personasDataTable" icon="ui-icon-close" 
-                            actionListener="#{personaBean.eliminarPersona}" />
+                            actionListener="#{personaBean.eliminarPersona()}" />
             </p:contextMenu>
 
         </h:form>
