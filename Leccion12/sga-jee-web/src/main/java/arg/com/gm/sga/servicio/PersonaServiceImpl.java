@@ -9,9 +9,12 @@ import javax.inject.Inject;
 import javax.jws.WebService;
 import arg.com.gm.sga.datos.PersonaDao;
 import arg.com.gm.sga.domain.Persona;
+import javax.annotation.security.*;
 
 @Stateless
 @WebService(endpointInterface = "mx.com.gm.sga.servicio.PersonaServiceWs")
+@DeclareRoles({"ROLE_ADMIN","ROLE_USER"})
+@RolesAllowed({"ROLE_ADMIN","ROLE_USER"})
 public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService, PersonaServiceWs {
 
     @Inject
@@ -51,6 +54,7 @@ public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService,
     }
 
     @Override
+    @RolesAllowed("ROLE_ADMIN")
     public void eliminarPersona(Persona persona) {
         personaDao.deletePersona(persona);
     }
