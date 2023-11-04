@@ -30,7 +30,7 @@ public class PersonaBean {
     @PostConstruct
     public void inicializar(){
         //Inciamos las variables
-        this.personas = personaService.listarPersona();
+        this.personas = personaService.listarPersonas();
         log.debug("personas recuperadas en ManagedBean:" + this.personas);
         this.personaSeleccionada = new Persona();
     }
@@ -55,20 +55,21 @@ public class PersonaBean {
     public void setPersonas(List<Persona> personas) {
         this.personas = personas;
     }
+    
     public void agregarPersona(){
-    this.personaService.registarPrsona(personaSeleccionada);
-    this.personas.add(personaSeleccionada);
-    this.personaSeleccionada=null;
+        this.personaService.registrarPersona(personaSeleccionada);
+        this.personas.add(personaSeleccionada);
+        this.personaSeleccionada = null;
     }
     
     public void eliminarPersona(){
-    this.personaService.eliminarPersona(personaSeleccionada);
-    this.personas.remove(this.personaSeleccionada);
-    this.personaSeleccionada=null;
+        this.personaService.eliminarPersona(personaSeleccionada);
+        this.personas.remove(this.personaSeleccionada);
+        this.personaSeleccionada = null;
     }
     
     public void reiniciarPersonaSeleccionada(){
-    this.personaSeleccionada=new Persona();
+        this.personaSeleccionada = new Persona();
     }
 
 }

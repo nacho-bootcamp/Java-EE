@@ -10,30 +10,28 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.*;
 
-/**
- *
- * @author eri y nacho
- */
 @Entity
 @NamedQueries({
     @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p"),
-    @NamedQuery(name = "Persona.findByIdpersona", query = "SELECT p FROM Persona p WHERE p.idpersona = :idpersona"),
+    @NamedQuery(name = "Persona.findByIdPersona", query = "SELECT p FROM Persona p WHERE p.idPersona = :idPersona"),
     @NamedQuery(name = "Persona.findByNombre", query = "SELECT p FROM Persona p WHERE p.nombre = :nombre"),
     @NamedQuery(name = "Persona.findByApellido", query = "SELECT p FROM Persona p WHERE p.apellido = :apellido"),
     @NamedQuery(name = "Persona.findByEmail", query = "SELECT p FROM Persona p WHERE p.email = :email"),
     @NamedQuery(name = "Persona.findByTelefono", query = "SELECT p FROM Persona p WHERE p.telefono = :telefono")})
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name="id_persona")
-    private Integer idpersona;
+    @Column(name = "idpersona")
+    private Integer idPersona;
     @Size(max = 45)
     private String nombre;
-   @Size(max = 45)
+    @Size(max = 45)
     private String apellido;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 45)
@@ -42,7 +40,7 @@ public class Persona implements Serializable {
     private String telefono;
     
     @XmlTransient
-    @OneToMany(mappedBy = "persona",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     private List<Usuario> usuarioList;
 
     public Persona() {
@@ -55,18 +53,16 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
     
-    
-
-    public Persona(Integer idpersona) {
-        this.idpersona = idpersona;
+    public Persona(Integer idPersona) {
+        this.idPersona = idPersona;
     }
 
-    public Integer getIdpersona() {
-        return idpersona;
+    public Integer getIdPersona() {
+        return idPersona;
     }
 
-    public void setIdpersona(Integer idpersona) {
-        this.idpersona = idpersona;
+    public void setIdPersona(Integer idPersona) {
+        this.idPersona = idPersona;
     }
 
     public String getNombre() {
@@ -112,7 +108,7 @@ public class Persona implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idpersona != null ? idpersona.hashCode() : 0);
+        hash += (idPersona != null ? idPersona.hashCode() : 0);
         return hash;
     }
 
@@ -123,7 +119,7 @@ public class Persona implements Serializable {
             return false;
         }
         Persona other = (Persona) object;
-        if ((this.idpersona == null && other.idpersona != null) || (this.idpersona != null && !this.idpersona.equals(other.idpersona))) {
+        if ((this.idPersona == null && other.idPersona != null) || (this.idPersona != null && !this.idPersona.equals(other.idPersona))) {
             return false;
         }
         return true;
@@ -131,9 +127,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "idpersona=" + idpersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
+        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
 
-   
-    
 }

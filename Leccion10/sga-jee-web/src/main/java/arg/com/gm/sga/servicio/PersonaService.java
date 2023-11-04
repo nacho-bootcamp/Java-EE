@@ -10,13 +10,13 @@ import javax.ejb.Local;
 
 @Local
 public interface PersonaService {
-    public List<Persona> listarPersona();
+      public List<Persona> listarPersonas();
     
     public Persona encontrarPersonaPorId(Persona persona);
     
     public Persona encontrarPersonaPorEmail(Persona persona);
     
-    public void registarPrsona(Persona persona);
+    public void registrarPersona(Persona persona);
     
     public void modificarPersona(Persona persona);
     

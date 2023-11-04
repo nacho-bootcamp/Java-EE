@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface UsuarioServiceRemote {
        
-    
+        
     public List<Usuario> listarUsuarios();
     
     public Usuario encontrarUsuarioPorId(Usuario usuario);

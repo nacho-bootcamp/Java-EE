@@ -12,17 +12,15 @@ import java.util.List;
  * @author nacho
  */
 public interface UsuarioDao {
-    public List<Usuario>findUsuarios();
+
     
-public Usuario findUsuarioById(Usuario usuario);
-
-public Usuario findUsuarioByIdpersona(Usuario persona);
-
-public Usuario findUsuarioByUsername(Usuario usuario);
-
-public void insertUsuario(Usuario usuario);
-
-public void updateUsuario(Usuario usuario);
-
-public void deleteUsuario(Usuario usuario);
+ public List<Usuario> findAllUsuarios();
+    
+    public Usuario findUsuarioById(Usuario usuario);
+    
+    public void insertUsuario(Usuario usuario);
+    
+    public void updateUsuario(Usuario usuario);
+    
+    public void deleteUsuario(Usuario usuario);
 }

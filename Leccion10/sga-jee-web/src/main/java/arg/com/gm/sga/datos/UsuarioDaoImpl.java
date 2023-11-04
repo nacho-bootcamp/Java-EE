@@ -19,31 +19,19 @@ public class UsuarioDaoImpl implements UsuarioDao{
     @PersistenceContext(unitName="PersonaPU")
     EntityManager em;
 
-    @Override
-    public List<Usuario> findUsuarios() {
+   @Override
+    public List<Usuario> findAllUsuarios() {
         return em.createNamedQuery("Usuario.findAll").getResultList();
     }
 
     @Override
     public Usuario findUsuarioById(Usuario usuario) {
-       return em.find(Usuario.class, usuario.getIdUsuario());
-    }
-
-    @Override
-    public Usuario findUsuarioByIdpersona(Usuario persona) {
-        return em.find(Usuario.class, persona.getIdUsuario());
-    }
-
-    @Override
-    public Usuario findUsuarioByUsername(Usuario usuario) {
-        Query query=em.createQuery("from Usuario p where p.username=:username");
-        query.setParameter("username", usuario.getUsername());
-        return (Usuario) query.getSingleResult();
+        return em.find(Usuario.class, usuario.getIdUsuario());
     }
 
     @Override
     public void insertUsuario(Usuario usuario) {
-       em.persist(usuario);
+        em.persist(usuario);
     }
 
     @Override
@@ -53,7 +41,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
     @Override
     public void deleteUsuario(Usuario usuario) {
-      em.remove(em.merge(usuario));
+        em.remove(em.merge(usuario));
     }
     
 }

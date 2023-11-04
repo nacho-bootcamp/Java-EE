@@ -12,6 +12,6 @@ import javax.jws.WebService;
 @WebService
 public interface PersonaServiceWs {
     
-   @WebMethod
-   public List<Persona> listarPersona();
+    @WebMethod
+    public List<Persona> listarPersonas();
 }

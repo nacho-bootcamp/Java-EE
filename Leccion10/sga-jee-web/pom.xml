@@ -16,14 +16,14 @@
         <jakartaee>8.0</jakartaee>
     </properties>
     
-    <dependencies>
+ <dependencies>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
             <version>2.2</version>
@@ -53,14 +53,19 @@
             <artifactId>primefaces</artifactId>
             <version>7.0</version>
         </dependency>
-        <dependency>
+         <dependency>
             <groupId>javax.jws</groupId>
             <artifactId>javax.jws-api</artifactId>
             <version>1.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.29</version>
+        </dependency>
     </dependencies>
     
-    <build>
+     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

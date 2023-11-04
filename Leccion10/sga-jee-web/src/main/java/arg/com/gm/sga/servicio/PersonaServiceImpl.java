@@ -17,15 +17,15 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "arg.com.gm.sga.servicio.PersonaServiceWs")
 public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService,PersonaServiceWs {
 
-    @Inject
+  @Inject
     private PersonaDao personaDao;
 
     @Resource
     private SessionContext contexto;
 
     @Override
-    public List<Persona> listarPersona() {
-        return personaDao.findAllPersona();
+    public List<Persona> listarPersonas() {
+        return personaDao.findAllPersonas();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService,
     }
 
     @Override
-    public void registarPrsona(Persona persona) {
+    public void registrarPersona(Persona persona) {
         personaDao.insertPersona(persona);
     }
 
@@ -51,12 +51,12 @@ public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService,
             contexto.setRollbackOnly();
             t.printStackTrace(System.out);
         }
-
     }
 
     @Override
     public void eliminarPersona(Persona persona) {
         personaDao.deletePersona(persona);
     }
+
 
 }
