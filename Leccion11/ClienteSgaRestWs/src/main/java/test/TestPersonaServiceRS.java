@@ -8,7 +8,7 @@ import javax.ws.rs.core.*;
 
 public class TestPersonaServiceRS {
   //Variables que utilizamos
-    private static final String URL_BASE="http://localhost:8181/sga-jee-web/webservice";
+    private static final String URL_BASE="http://localhost:8080/sga-jee-web/webservice";
     private static Client cliente;
     private static WebTarget webTarget;
     private static Persona persona;
