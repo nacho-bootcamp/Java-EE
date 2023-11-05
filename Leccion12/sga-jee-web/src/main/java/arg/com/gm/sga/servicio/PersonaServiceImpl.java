@@ -1,6 +1,6 @@
 package arg.com.gm.sga.servicio;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
