@@ -8,9 +8,9 @@ import java.io.Serializable;
 
 public class Persona implements Serializable {
 
-    private static final long serialVrsionUID = 1L;
-    
-     public Persona() {
+    private static final long serialVersionUID = 1L;
+
+    public Persona() {
     }
 
     public Persona(Integer idpersona) {
@@ -52,12 +52,13 @@ public class Persona implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
     private String telefono;
 
     @Override
     public String toString() {
-        return "Persona{" + "idpersona=" + idpersona + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
+        return "Persona{" + "idpersona=" + idpersona + ", apellido=" + apellido + ", email=" + email + ", telefono="
+                + telefono + '}';
     }
 
-   
 }

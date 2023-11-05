@@ -6,16 +6,16 @@ package arg.com.gm.sga.domain;
 
 import java.io.Serializable;
 
-public class Persona implements Serializable{
-    private static final long serialVersinUID=1L;
+public class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int idPersona;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
-    
-    public Persona(){
-        
+
+    public Persona() {
+
     }
 
     public Persona(int idPersona, String nombre, String apellido, String email, String telefono) {
@@ -68,13 +68,8 @@ public class Persona implements Serializable{
 
     @Override
     public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
+        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email="
+                + email + ", telefono=" + telefono + '}';
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
