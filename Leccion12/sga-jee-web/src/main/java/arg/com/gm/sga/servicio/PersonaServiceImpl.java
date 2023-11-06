@@ -1,7 +1,8 @@
 package arg.com.gm.sga.servicio;
 
-
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;

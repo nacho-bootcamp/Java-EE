@@ -24,7 +24,7 @@
         <servlet-name>JerseyWebApplication</servlet-name>
         <url-pattern>/webservice/*</url-pattern>
     </servlet-mapping>
-        
+   
     <!--Seguridad-->
     <login-config>
         <auth-method>BASIC</auth-method>
@@ -40,5 +40,6 @@
             <role-name>ROLE_USER</role-name>
             <role-name>ROLE_GUEST</role-name>
         </auth-constraint>
-    </security-constraint>
+    </security-constraint>     
+    
 </web-app>

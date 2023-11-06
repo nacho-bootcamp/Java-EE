@@ -9,13 +9,12 @@
     </h:head>
     <h:body>
         <h2>Sistema SGA</h2>
-        Bienvenido:<h:outputText value="${p: userPrincipal()}"/>
+        Bienvenido: <h:outputText value="#{p:userPrincipal()}" />
         <h:form>
-            <p:messages/>
-            <p:panelGrid columns="1" rendered="${p:ifGranted('ROLE_ADMIN')||p:ifGranted('ROLE_USER')}">
-            <h:commandButton value="Listar Personas" action="listarPersonas" />
+            <p:messages />
+            <p:panelGrid columns="1" rendered="#{p:ifGranted('ROLE_ADMIN') || p:ifGranted('ROLE_USER')}">
+                <h:commandButton value="Listar Personas" action="listarPersonas" />
             </p:panelGrid>
-            
         </h:form>
     </h:body>
 </html>

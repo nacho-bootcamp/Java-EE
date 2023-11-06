@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "persona", propOrder = {
-    "idpersona",
+    "idPersona",
     "nombre",
     "apellido",
     "email",
@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Persona {
 
-    protected Integer idpersona;
+    protected Integer idPersona;
     protected String nombre;
     protected String apellido;
     protected String email;
@@ -54,7 +54,7 @@ public class Persona {
      *     
      */
     public Integer getIdPersona() {
-        return idpersona;
+        return idPersona;
     }
 
     /**
@@ -66,7 +66,7 @@ public class Persona {
      *     
      */
     public void setIdPersona(Integer value) {
-        this.idpersona = value;
+        this.idPersona = value;
     }
 
     /**
