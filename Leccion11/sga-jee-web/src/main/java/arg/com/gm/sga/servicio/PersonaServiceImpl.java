@@ -11,7 +11,7 @@ import arg.com.gm.sga.datos.PersonaDao;
 import arg.com.gm.sga.domain.Persona;
 
 @Stateless
-@WebService(endpointInterface = "mx.com.gm.sga.servicio.PersonaServiceWs")
+@WebService(endpointInterface = "arg.com.gm.sga.servicio.PersonaServiceWs")
 public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService, PersonaServiceWs {
 
     @Inject
