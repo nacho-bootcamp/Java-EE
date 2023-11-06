@@ -5,9 +5,12 @@ import clientews.servicio.PersonaServiceImplService;
 import clientews.servicio.PersonaServiceWs;
 import java.util.List;
 
+
+
 public class TestPersonaServiceWS {
+
     public static void main(String[] args) {
-        PersonaServiceWs personaService = new PersonaServiceImplService().getPersonaServiceImplPort();
+               PersonaServiceWs personaService = new PersonaServiceImplService().getPersonaServiceImplPort();
         
         System.out.println("ejecutando servicio listar personas ws");
         List<Persona> personas = personaService.listarPersonas();
@@ -16,5 +19,5 @@ public class TestPersonaServiceWS {
             + ", apellido:" +  persona.getApellido() + ", email:" + persona.getEmail());
         }
         System.out.println("Fin servicio listar personas ws");
-    }
+}
 }

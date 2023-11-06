@@ -1,12 +1,12 @@
 package arg.com.gm.sga.web;
 
-import arg.com.gm.sga.domain.Persona;
-import arg.com.gm.sga.servicio.PersonaService;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import arg.com.gm.sga.domain.Persona;
+import arg.com.gm.sga.servicio.PersonaService;
 import org.apache.logging.log4j.*;
 import org.primefaces.event.RowEditEvent;
 
@@ -71,5 +71,4 @@ public class PersonaBean {
     public void reiniciarPersonaSeleccionada(){
         this.personaSeleccionada = new Persona();
     }
-
 }

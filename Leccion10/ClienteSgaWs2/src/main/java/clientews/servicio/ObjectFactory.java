@@ -24,14 +24,23 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ListarPersonas_QNAME = new QName("http://servicio.sga.gm.com.mx/", "listarPersonas");
-    private final static QName _ListarPersonasResponse_QNAME = new QName("http://servicio.sga.gm.com.mx/", "listarPersonasResponse");
+    private final static QName _Persona_QNAME = new QName("http://servicio.sga.gm.com.arg/", "persona");
+    private final static QName _ListarPersonas_QNAME = new QName("http://servicio.sga.gm.com.arg/", "listarPersonas");
+    private final static QName _ListarPersonasResponse_QNAME = new QName("http://servicio.sga.gm.com.arg/", "listarPersonasResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: clientews.servicio
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Persona }
+     * 
+     */
+    public Persona createPersona() {
+        return new Persona();
     }
 
     /**
@@ -51,18 +60,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Persona }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Persona }{@code >}}
      * 
      */
-    public Persona createPersona() {
-        return new Persona();
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.arg/", name = "persona")
+    public JAXBElement<Persona> createPersona(Persona value) {
+        return new JAXBElement<Persona>(_Persona_QNAME, Persona.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarPersonas }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "listarPersonas")
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.arg/", name = "listarPersonas")
     public JAXBElement<ListarPersonas> createListarPersonas(ListarPersonas value) {
         return new JAXBElement<ListarPersonas>(_ListarPersonas_QNAME, ListarPersonas.class, null, value);
     }
@@ -71,7 +81,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarPersonasResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.mx/", name = "listarPersonasResponse")
+    @XmlElementDecl(namespace = "http://servicio.sga.gm.com.arg/", name = "listarPersonasResponse")
     public JAXBElement<ListarPersonasResponse> createListarPersonasResponse(ListarPersonasResponse value) {
         return new JAXBElement<ListarPersonasResponse>(_ListarPersonasResponse_QNAME, ListarPersonasResponse.class, null, value);
     }

@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "PersonaServiceImplService", targetNamespace = "http://servicio.sga.gm.com.mx/", wsdlLocation = "http://localhost:8080/PersonaServiceImplService/PersonaServiceImpl?wsdl")
+@WebServiceClient(name = "PersonaServiceImplService", targetNamespace = "http://servicio.sga.gm.com.arg/", wsdlLocation = "http://localhost:8080/PersonaServiceImplService/PersonaServiceImpl?wsdl")
 public class PersonaServiceImplService
     extends Service
 {
 
     private final static URL PERSONASERVICEIMPLSERVICE_WSDL_LOCATION;
     private final static WebServiceException PERSONASERVICEIMPLSERVICE_EXCEPTION;
-    private final static QName PERSONASERVICEIMPLSERVICE_QNAME = new QName("http://servicio.sga.gm.com.mx/", "PersonaServiceImplService");
+    private final static QName PERSONASERVICEIMPLSERVICE_QNAME = new QName("http://servicio.sga.gm.com.arg/", "PersonaServiceImplService");
 
     static {
         URL url = null;
@@ -69,7 +69,7 @@ public class PersonaServiceImplService
      */
     @WebEndpoint(name = "PersonaServiceImplPort")
     public PersonaServiceWs getPersonaServiceImplPort() {
-        return super.getPort(new QName("http://servicio.sga.gm.com.mx/", "PersonaServiceImplPort"), PersonaServiceWs.class);
+        return super.getPort(new QName("http://servicio.sga.gm.com.arg/", "PersonaServiceImplPort"), PersonaServiceWs.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class PersonaServiceImplService
      */
     @WebEndpoint(name = "PersonaServiceImplPort")
     public PersonaServiceWs getPersonaServiceImplPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://servicio.sga.gm.com.mx/", "PersonaServiceImplPort"), PersonaServiceWs.class, features);
+        return super.getPort(new QName("http://servicio.sga.gm.com.arg/", "PersonaServiceImplPort"), PersonaServiceWs.class, features);
     }
 
     private static URL __getWsdlLocation() {

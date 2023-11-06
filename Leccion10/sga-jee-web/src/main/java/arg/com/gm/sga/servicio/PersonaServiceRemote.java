@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package arg.com.gm.sga.servicio;
 
-import arg.com.gm.sga.domain.Persona;
 import java.util.List;
 import javax.ejb.Remote;
+import arg.com.gm.sga.domain.Persona;
 
 @Remote
 public interface PersonaServiceRemote {
+    
     public List<Persona> listarPersonas();
     
     public Persona encontrarPersonaPorId(Persona persona);

@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package arg.com.gm.sga.datos;
 
-import arg.com.gm.sga.domain.Persona;
 import java.util.List;
+import arg.com.gm.sga.domain.Persona;
 
 public interface PersonaDao {
     public List<Persona> findAllPersonas();
@@ -19,4 +15,5 @@ public interface PersonaDao {
     public void updatePersona(Persona persona);
     
     public void deletePersona(Persona persona);
+    
 }

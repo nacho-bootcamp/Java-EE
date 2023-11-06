@@ -1,23 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package arg.com.gm.sga.servicio;
 
-import arg.com.gm.sga.datos.PersonaDao;
-import arg.com.gm.sga.domain.Persona;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.jws.WebService;
+import arg.com.gm.sga.datos.PersonaDao;
+import arg.com.gm.sga.domain.Persona;
 
 @Stateless
 @WebService(endpointInterface = "arg.com.gm.sga.servicio.PersonaServiceWs")
-public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService,PersonaServiceWs {
+public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService, PersonaServiceWs {
 
-  @Inject
+    @Inject
     private PersonaDao personaDao;
 
     @Resource
@@ -57,6 +54,5 @@ public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService,
     public void eliminarPersona(Persona persona) {
         personaDao.deletePersona(persona);
     }
-
 
 }

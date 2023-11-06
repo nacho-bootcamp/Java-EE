@@ -1,48 +1,45 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package arg.com.gm.sga.cliente.ciclovidajpa;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import arg.com.gm.sga.domain.Persona;
-import javax.persistence.*;
-import org.apache.logging.log4j.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-/**
- *
- * @author eri y nacho
- */
 public class ActualizarObjetoSesionLarga {
-    
+
     static Logger log = LogManager.getRootLogger();
-    
+
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonaPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SgaPU");
         EntityManager em = emf.createEntityManager();
 
-        //iniciamos la transaccion
+        //Inicia la transaccion
         //Paso 1. Iniciar una transaccion
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        //Paso 2.Ejecutamos el SQL de tipo select
+        //Paso. ejecutamos SQL de tipo select
         Persona persona1 = em.find(Persona.class, 1);
         
-        log.debug("Objecto encontrado: " + persona1);
-
-        //Paso 3.setValue()
-        persona1.setEmail("jjerezemail.com");
+        log.debug("Objecto encontrado:" + persona1);
         
-        persona1.setEmail("J.Jerez@gmail.com");
-
-        //Paso 4.Termina la transaccion
+        //Paso 3. setValue(nuevoValor)
+        persona1.setEmail("jjuarez@mail.com");
+        
+        persona1.setEmail("j.juarez@mail.com");
+        
+        //Paso 4. Termina la transaccion 1
         tx.commit();
-
+        
         //Objeto en estado detached
-        log.debug("Objeto modificado:" + persona1);
+        log.debug("objeto modificado:" + persona1);
 
         //Cerramos el entity manager
         em.close();
+
     }
-    
+
 }

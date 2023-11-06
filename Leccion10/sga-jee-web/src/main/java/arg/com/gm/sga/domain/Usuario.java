@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package arg.com.gm.sga.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author eri y nacho
- */
 @Entity
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
@@ -21,38 +13,41 @@ import javax.validation.constraints.Size;
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_usuario")
     private Integer idUsuario;
+    
     @Size(max = 45)
     private String username;
+    
     @Size(max = 45)
     private String password;
-    @JoinColumn(name = "id_persona", referencedColumnName = "idpersona")
-    @ManyToOne(cascade=CascadeType.ALL)
+    
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Persona persona;
 
     public Usuario() {
+    }
+
+    public Usuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public Usuario(String username, String password) {
         this.username = username;
         this.password = password;
     }
-    
-
-    public Usuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     public Usuario(String username, String password, Persona persona) {
-    this.username=username;
-    this.password=password;
-    this.persona=persona;
+        this.username = username;
+        this.password = password;
+        this.persona = persona;
     }
-
+    
     public Integer getIdUsuario() {
         return idUsuario;
     }
@@ -110,6 +105,4 @@ public class Usuario implements Serializable {
         return "Usuario{" + "idUsuario=" + idUsuario + ", username=" + username + ", password=" + password + ", persona=" + persona + '}';
     }
 
-   
-    
 }

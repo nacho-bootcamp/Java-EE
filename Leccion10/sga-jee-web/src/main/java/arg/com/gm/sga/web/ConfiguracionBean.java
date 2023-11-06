@@ -1,4 +1,3 @@
-
 package arg.com.gm.sga.web;
 
 import javax.enterprise.context.ApplicationScoped;

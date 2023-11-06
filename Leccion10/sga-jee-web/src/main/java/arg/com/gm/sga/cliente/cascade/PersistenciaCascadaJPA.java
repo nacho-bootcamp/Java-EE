@@ -1,45 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package arg.com.gm.sga.cliente.cascade;
 
+import javax.persistence.*;
 import arg.com.gm.sga.domain.Persona;
 import arg.com.gm.sga.domain.Usuario;
-import javax.persistence.*;
 import org.apache.logging.log4j.*;
 
-/**
- *
- * @author eri y nacho
- */
 public class PersistenciaCascadaJPA {
-
     static Logger log = LogManager.getRootLogger();
-
+    
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonaPU");
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SgaPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
-        //paso 1.Crear nuevo objeto
+        
+        //Paso 1. Crea nuevo objeto
         //objeto en estado transitivo
-        Persona persona1 = new Persona("nacho", "Cardozo", "ICardozo@gmail.com", "3884686043");
-
-        //creamo objetp usuario(tiene dependencia con el objeto persona)
-        Usuario usuario1 = new Usuario("ICardozo@gmail.com", "123456", persona1);
-
-        //paso3 persistir el objeto usuario unicamente
+        Persona persona1 = new Persona("Hugo", "Hernandez", "hhernandez@mail.com", "55778822");
+        
+        //Crear objeto usuario (tiene dependencia con el objeto persona)
+        Usuario usuario1 = new Usuario("hhernandez", "123", persona1);
+        
+        //Paso 3. persistimos el objeto usuario unicamente
         em.persist(usuario1);
-
-        //paso4 commit transaccion
+        
+        //Paso 4. commit transaccion
         tx.commit();
-
-        //objetos en estado detached
-        log.debug("Objeto persistido persona1:" + persona1);
-        log.debug("Objeto persistido persona1:" + usuario1);
-
+        
+        //objetos en estados detached
+        log.debug("objeto persistido persona:" + persona1);
+        log.debug("objeto persistido usuario:" + usuario1);
+        
         em.close();
+        
     }
 }
